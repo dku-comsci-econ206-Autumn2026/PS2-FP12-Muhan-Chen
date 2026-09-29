@@ -1,0 +1,169 @@
+{
+  "p_star": 0.6,
+  "forfeit": 5,
+  "forfeit_not_transferred": true,
+  "similarity_changes_payoff": false,
+  "treatments": [
+    {
+      "alignment": "aligned",
+      "forfeit": false,
+      "equilibrium": {
+        "decider": "trust",
+        "promiser": "keep"
+      },
+      "equilibrium_payoffs": {
+        "decider": 6,
+        "promiser": 6
+      },
+      "decider_matrix": [
+        [
+          6,
+          -4
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "promiser_matrix": [
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          3
+        ]
+      ]
+    },
+    {
+      "alignment": "misaligned",
+      "forfeit": false,
+      "equilibrium": {
+        "decider": "verify",
+        "promiser": "break"
+      },
+      "equilibrium_payoffs": {
+        "decider": 2,
+        "promiser": 10
+      },
+      "decider_matrix": [
+        [
+          6,
+          -4
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "promiser_matrix": [
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "alignment": "misaligned",
+      "forfeit": true,
+      "equilibrium": {
+        "decider": "trust",
+        "promiser": "keep"
+      },
+      "equilibrium_payoffs": {
+        "decider": 6,
+        "promiser": 6
+      },
+      "decider_matrix": [
+        [
+          6,
+          -4
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "promiser_matrix": [
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          5
+        ]
+      ]
+    }
+  ],
+  "ps1_seed_206": {
+    "benchmark": 48,
+    "always_verify": 24,
+    "always_trust": 22,
+    "similarity": 18
+  },
+  "schedule_seed_206_counts": {
+    "aligned|different|forfeit=0": 2,
+    "aligned|same|forfeit=0": 2,
+    "misaligned|same|forfeit=0": 2,
+    "misaligned|different|forfeit=1": 2,
+    "misaligned|different|forfeit=0": 2,
+    "misaligned|same|forfeit=1": 2
+  },
+  "auction_examples": [
+    {
+      "winner": 0,
+      "forfeit": 3,
+      "break_payoff": 7,
+      "unique": true,
+      "equilibrium": {
+        "decider": "verify",
+        "promiser": "break"
+      },
+      "tie": false,
+      "similarity_ignored": true
+    },
+    {
+      "winner": 0,
+      "forfeit": 6,
+      "break_payoff": 4,
+      "unique": true,
+      "equilibrium": {
+        "decider": "trust",
+        "promiser": "keep"
+      },
+      "tie": false,
+      "similarity_ignored": true
+    },
+    {
+      "winner": 1,
+      "forfeit": 5,
+      "break_payoff": 5,
+      "unique": true,
+      "equilibrium": {
+        "decider": "trust",
+        "promiser": "keep"
+      },
+      "tie": true,
+      "similarity_ignored": true
+    },
+    {
+      "winner": 1,
+      "forfeit": 5,
+      "break_payoff": 5,
+      "unique": true,
+      "equilibrium": {
+        "decider": "trust",
+        "promiser": "keep"
+      },
+      "tie": true,
+      "similarity_ignored": true
+    }
+  ],
+  "human_n": 0
+}
