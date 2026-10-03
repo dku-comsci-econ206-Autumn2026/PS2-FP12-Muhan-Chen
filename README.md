@@ -63,7 +63,7 @@ python -m unittest discover -s tests -v
 | Misaligned, forfeit 5 | Trust, Keep, payoffs 6 and 6 |
 | PS1 seed 206, copied schedule | benchmark +48, always-Verify +24, always-Trust +22, Trust-if-similar +18 |
 
-The PS1 totals replay the old game, in which the agent's Keep or Break was a draw (`0.85` if aligned, `0.25` if misaligned). That replay is not a player in the new game. Human play is not in this repository.
+The PS1 totals replay the old game, in which the agent's Keep or Break was a draw (`0.85` if aligned, `0.25` if misaligned). That replay is not a player in the new game. Human play is in `data/`: seven pairs, session code 206, 84 valid rounds. Those files are not the interface test.
 
 ## Appendix auction, not the result
 

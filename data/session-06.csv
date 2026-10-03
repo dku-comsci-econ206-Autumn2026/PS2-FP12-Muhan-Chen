@@ -1,0 +1,13 @@
+session,seed,round,alignment,similar,forfeit,promiser,decider,promiser_points,decider_points,ne_promiser,ne_decider,stated_rule,card_clarity,reason
+206,206,1,aligned,different,0,keep,trust,6,6,keep,trust,,,
+206,206,2,aligned,same,0,break,verify,3,2,keep,trust,,,
+206,206,3,misaligned,same,0,break,trust,10,-4,break,verify,,,
+206,206,4,aligned,same,0,break,trust,3,-4,keep,trust,,,
+206,206,5,misaligned,different,1,break,trust,5,-4,keep,trust,,,
+206,206,6,misaligned,different,0,break,trust,10,-4,break,verify,,,
+206,206,7,misaligned,same,1,break,trust,5,-4,keep,trust,,,
+206,206,8,misaligned,same,0,break,trust,10,-4,break,verify,,,
+206,206,9,aligned,different,0,break,verify,3,2,keep,trust,,,
+206,206,10,misaligned,different,0,keep,trust,6,6,break,verify,,,
+206,206,11,misaligned,different,1,keep,trust,6,6,keep,trust,,,
+206,206,12,misaligned,same,1,keep,trust,6,6,keep,trust,,,
