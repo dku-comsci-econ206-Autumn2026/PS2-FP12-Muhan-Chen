@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="title desc">
+  <title id="title">Classroom game on one computer</title>
+  <desc id="desc">The Promiser locks Keep or Break and hands off the computer. The Decider, who cannot see that choice, locks Trust or Verify and the round is scored. After twelve rounds the page shows the equilibrium and a CSV can be downloaded. Seven pairs on one computer are not a sample of negotiators.</desc>
+  <rect width="1000" height="400" fill="#F7F8FA"/>
+  <rect x="16" y="16" width="968" height="368" rx="16" fill="#FFFFFF" stroke="#E6E8EB"/>
+  <text x="40" y="52" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0072B2">Classroom game</text>
+  <text x="40" y="76" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#5C6770">Two classmates pass one computer. The page deals cards. It does not choose for them.</text>
+  <g font-family="Helvetica, Arial, sans-serif">
+    <text x="40" y="124" font-size="13" font-weight="700" fill="#0072B2">PROMISER</text>
+    <rect x="168" y="100" width="210" height="46" rx="10" fill="#E8F3FB" stroke="#0072B2"/>
+    <text x="273" y="128" text-anchor="middle" font-size="15" fill="#111111">Public card</text>
+    <path d="M386 123 H418" stroke="#0072B2" stroke-width="1.6" fill="none"/>
+    <path d="M412 118 L422 123 L412 128" stroke="#0072B2" stroke-width="1.6" fill="none"/>
+    <rect x="428" y="100" width="210" height="46" rx="10" fill="#E8F3FB" stroke="#0072B2"/>
+    <text x="533" y="128" text-anchor="middle" font-size="15" fill="#111111">Keep or Break</text>
+    <path d="M646 123 H678" stroke="#0072B2" stroke-width="1.6" fill="none"/>
+    <path d="M672 118 L682 123 L672 128" stroke="#0072B2" stroke-width="1.6" fill="none"/>
+    <rect x="688" y="100" width="250" height="46" rx="10" fill="#E8F3FB" stroke="#0072B2"/>
+    <text x="813" y="128" text-anchor="middle" font-size="15" fill="#111111">Hand off the computer</text>
+
+    <text x="40" y="198" font-size="13" font-weight="700" fill="#009E73">DECIDER</text>
+    <rect x="168" y="174" width="210" height="46" rx="10" fill="#E7F6F1" stroke="#009E73"/>
+    <text x="273" y="202" text-anchor="middle" font-size="15" fill="#111111">Choice stays hidden</text>
+    <path d="M386 197 H418" stroke="#009E73" stroke-width="1.6" fill="none"/>
+    <path d="M412 192 L422 197 L412 202" stroke="#009E73" stroke-width="1.6" fill="none"/>
+    <rect x="428" y="174" width="210" height="46" rx="10" fill="#E7F6F1" stroke="#009E73"/>
+    <text x="533" y="202" text-anchor="middle" font-size="15" fill="#111111">Trust or Verify</text>
+    <path d="M646 197 H678" stroke="#009E73" stroke-width="1.6" fill="none"/>
+    <path d="M672 192 L682 197 L672 202" stroke="#009E73" stroke-width="1.6" fill="none"/>
+    <rect x="688" y="174" width="250" height="46" rx="10" fill="#E7F6F1" stroke="#009E73"/>
+    <text x="813" y="202" text-anchor="middle" font-size="15" fill="#111111">Score this round</text>
+
+    <text x="40" y="272" font-size="13" font-weight="700" fill="#B86E00">AFTER 12</text>
+    <rect x="298" y="248" width="230" height="46" rx="10" fill="#FFF6E8" stroke="#E69F00"/>
+    <text x="413" y="276" text-anchor="middle" font-size="15" fill="#111111">Show the equilibrium</text>
+    <path d="M536 271 H568" stroke="#E69F00" stroke-width="1.6" fill="none"/>
+    <path d="M562 266 L572 271 L562 276" stroke="#E69F00" stroke-width="1.6" fill="none"/>
+    <rect x="578" y="248" width="230" height="46" rx="10" fill="#FFF6E8" stroke="#E69F00"/>
+    <text x="693" y="276" text-anchor="middle" font-size="15" fill="#111111">Download the CSV</text>
+
+    <rect x="40" y="316" width="920" height="50" rx="10" fill="#FFF8F6" stroke="#C2410C"/>
+    <text x="500" y="336" text-anchor="middle" font-size="13" font-weight="700" fill="#9A3412">Evidence boundary: seven pairs, one computer. Not a sample of negotiators.</text>
+    <text x="500" y="354" text-anchor="middle" font-size="13" fill="#9A3412">The forfeit cards are also later rounds, so the Trust rise is mixed with order.</text>
+  </g>
+</svg>
