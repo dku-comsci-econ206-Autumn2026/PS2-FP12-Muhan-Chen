@@ -1,0 +1,91 @@
+:root {
+  --ink: #111111;
+  --strategy: #0072b2;
+  --inter: #009e73;
+  --lead: #e69f00;
+  --nobel: #cc79a7;
+  --surface: #f5f7fa;
+  --divider: #d9d9d9;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font: 17px/1.5 Georgia, "Times New Roman", serif;
+}
+
+main { max-width: 740px; margin: 0 auto; padding: 28px 16px 64px; }
+
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 22px; margin: 0 0 8px; }
+h3 { font-size: 18px; margin: 16px 0 8px; }
+p { margin: 0 0 12px; }
+
+.lede { font-size: 18px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+label { display: block; font-weight: 700; margin: 12px 0 6px; }
+
+input, select, textarea {
+  width: 100%;
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.row { display: flex; gap: 8px; align-items: center; }
+.row input { flex: 1; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 12px 14px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+}
+
+button.primary { background: var(--strategy); color: #fff; border-color: var(--strategy); }
+button.choice { width: 100%; text-align: left; margin: 8px 0; }
+button.choice strong { display: block; font-size: 18px; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 14px;
+  margin-right: 6px;
+}
+.tag.strategy { border-color: var(--strategy); color: var(--strategy); }
+.tag.inter { border-color: var(--inter); color: var(--inter); }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; }
+th, td { border: 1px solid var(--divider); padding: 8px; text-align: left; }
+th { background: var(--surface); }
+
+.score { display: flex; gap: 12px; margin: 8px 0 12px; }
+.score div { flex: 1; border: 1px solid var(--divider); border-radius: 8px; padding: 8px 10px; }
+.score b { font-size: 22px; }
+
+.note { font-size: 15px; }
+.foot { font-size: 14px; margin-top: 20px; }
+.error { color: var(--ink); background: #fff4d6; border: 1px solid var(--lead); padding: 8px 10px; border-radius: 8px; }
+
+ol.steps li { margin: 6px 0; }

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trust the Table, Not the Resemblance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <h1>Trust the table, not the resemblance</h1>
+  <p class="lede">Two classmates share one computer. One promises. One decides whether to trust. The computer only deals the cards.</p>
+</header>
+
+<section id="intro" class="card">
+  <h2>How to sit</h2>
+  <ol class="steps">
+    <li><b>Promiser.</b> You see a payoff card and choose Keep or Break. The other person cannot see this choice.</li>
+    <li><b>Hand the computer over.</b> Look away.</li>
+    <li><b>Decider.</b> You see the same card and a label, SAME or DIFFERENT. You do not see what the Promiser chose. You choose Trust or Verify.</li>
+    <li>The round is revealed. Points are not money. There are 12 rounds. The explanation of the equilibrium is shown only at the end.</li>
+  </ol>
+  <p>The label says whether a displayed priority matches the Decider. It does not change anyone's points, and it cannot remove the forfeit.</p>
+  <label for="code">Session code. Classmates who want the same card order use the same code.</label>
+  <input id="code" type="text" maxlength="24" value="206" autocomplete="off">
+  <label for="priority">Decider's priority. This is what SAME / DIFFERENT is compared with.</label>
+  <select id="priority">
+    <option value="cost">Cost-efficiency first</option>
+    <option value="speed">Delivery-speed first</option>
+    <option value="equity">Supplier-equity first</option>
+  </select>
+  <p class="note">Leave the code blank for a new shuffle. Nothing is uploaded. An AI does not play either role.</p>
+  <p><button id="startBtn" class="primary">Start</button></p>
+  <p id="startError" class="error" hidden></p>
+</section>
+
+<section id="play" class="card" hidden>
+  <p><span id="roundLabel" class="tag strategy"></span> <span id="roleLabel" class="tag"></span></p>
+  <div id="promiserPane">
+    <h2>Promiser, this card is yours</h2>
+    <p id="promiserCard"></p>
+    <button id="keepBtn" class="choice"><strong>Keep</strong><span>Take the Keep payoff on the card.</span></button>
+    <button id="breakBtn" class="choice"><strong>Break</strong><span>Take the Break payoff on the card.</span></button>
+  </div>
+  <div id="handoffPane" hidden>
+    <h2>Hand the computer to the Decider</h2>
+    <p>Promiser, look away. The choice you just locked is hidden.</p>
+    <button id="deciderReady" class="primary">I am the Decider</button>
+  </div>
+  <div id="deciderPane" hidden>
+    <h2>Decider, you cannot see their choice</h2>
+    <p id="labelLine"></p>
+    <p id="deciderCard"></p>
+    <table>
+      <tr><th>Your choice</th><th>If they Keep</th><th>If they Break</th></tr>
+      <tr><td>Trust</td><td>+6</td><td>−4</td></tr>
+      <tr><td>Verify</td><td>+2</td><td>+2</td></tr>
+    </table>
+    <button id="trustBtn" class="choice"><strong>Trust</strong><span>+6 if they kept, −4 if they broke.</span></button>
+    <button id="verifyBtn" class="choice"><strong>Verify</strong><span>+2 either way.</span></button>
+  </div>
+  <div id="revealPane" hidden>
+    <h2>This round</h2>
+    <p id="revealText"></p>
+    <div class="score">
+      <div>Decider total <b id="deciderTotal">0</b></div>
+      <div>Promiser total <b id="promiserTotal">0</b></div>
+    </div>
+    <button id="nextBtn" class="primary">Next round</button>
+  </div>
+</section>
+
+<section id="done" class="card" hidden>
+  <h2>What the table says</h2>
+  <p>These lines are the equilibria of the cards. They are not a summary of how you played.</p>
+  <ul>
+    <li>Aligned card: Keep pays the Promiser 6 and Break pays 3. The equilibrium is Trust and Keep.</li>
+    <li>Misaligned card, no forfeit: Break pays 10. The equilibrium is Verify and Break.</li>
+    <li>Misaligned card, forfeit of 5: Break pays 5. The equilibrium is Trust and Keep. The Decider still gets −4 if the Promiser breaks. The 5 points are not transferred.</li>
+  </ul>
+  <p>SAME or DIFFERENT is not a row in the table. Trust is worth as much as Verify only when the other person keeps at least 60 percent of the time. On these cards the Promiser has a strictly better action, so the equilibrium does not use that percentage.</p>
+  <label for="rule">Which did you follow?</label>
+  <select id="rule">
+    <option value="">Choose one</option>
+    <option value="card">The payoff card</option>
+    <option value="similar">Whether we looked alike</option>
+    <option value="unsure">I am not sure</option>
+  </select>
+  <label for="clarity">How clear was the card? 1 is unclear, 5 is clear.</label>
+  <select id="clarity">
+    <option value="">Choose one</option>
+    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+  </select>
+  <label for="reason">One sentence on why you trusted or verified.</label>
+  <textarea id="reason" rows="3"></textarea>
+  <p><button id="downloadBtn" class="primary">Download CSV</button></p>
+  <p class="note">This file is the record. Until a person plays, it is not a behavioral result. A click-through by the author is an interface test.</p>
+</section>
+
+<p class="foot">COMSCI/ECON 206 · Team FP12 · Muhan Chen. Static page: nothing is stored on a server. Palette: strategy #0072B2, interdisciplinary #009E73, leadership #E69F00, Nobel and peer learning #CC79A7, ink #111111, surface #F5F7FA, divider #D9D9D9. Labels repeat what the color marks.</p>
+</main>
+<script src="game_logic.js"></script>
+<script>
+"use strict";
+const G = TrustForfeit;
+const el = (id) => document.getElementById(id);
+let S = null;
+
+function cardSentence(rnd) {
+  const keep = G.promiserPayoff(rnd.alignment, "keep", rnd.forfeit);
+  const brk = G.promiserPayoff(rnd.alignment, "break", rnd.forfeit);
+  const name = rnd.alignment === "aligned" ? "Aligned" : "Misaligned";
+  const fine = rnd.forfeit ? " A forfeit of 5 is taken if you break, so Break pays 5 rather than 10." : "";
+  return name + " card. Keep pays " + keep + ". Break pays " + brk + "." + fine;
+}
+
+function show(id) {
+  ["promiserPane", "handoffPane", "deciderPane", "revealPane"].forEach((pane) => {
+    el(pane).hidden = pane !== id;
+  });
+}
+
+function start() {
+  el("startError").hidden = true;
+  let code = el("code").value.trim();
+  if (!code) code = String(Date.now() % 1000000000);
+  let seed;
+  try { seed = G.sessionSeed(code); }
+  catch (err) {
+    el("startError").hidden = false;
+    el("startError").textContent = err.message;
+    return;
+  }
+  S = {
+    code: code,
+    seed: seed,
+    priority: el("priority").value,
+    rounds: G.buildRounds(seed),
+    i: 0,
+    deciderTotal: 0,
+    promiserTotal: 0,
+    log: [],
+  };
+  el("intro").hidden = true;
+  el("play").hidden = false;
+  renderPromiser();
+}
+
+function renderPromiser() {
+  const rnd = S.rounds[S.i];
+  el("roundLabel").textContent = "Round " + (S.i + 1) + " of " + G.N_ROUNDS;
+  el("roleLabel").textContent = "Promiser";
+  el("promiserCard").textContent = cardSentence(rnd);
+  show("promiserPane");
+}
+
+function lockPromiser(action) {
+  S.promiserChoice = action;
+  show("handoffPane");
+}
+
+function renderDecider() {
+  const rnd = S.rounds[S.i];
+  el("roleLabel").textContent = "Decider";
+  const shown = G.shownPriority(S.priority, rnd.similar);
+  const word = rnd.similar ? "SAME" : "DIFFERENT";
+  el("labelLine").textContent = word + ". Displayed priority: " + G.PRIORITY_LABEL[shown] + ". Yours: " + G.PRIORITY_LABEL[S.priority] + ". This label does not change the points.";
+  el("deciderCard").textContent = cardSentence(rnd).replace("if you break", "if they break");
+  show("deciderPane");
+}
+
+function lockDecider(action) {
+  const rnd = S.rounds[S.i];
+  const dPay = G.deciderPayoff(action, S.promiserChoice);
+  const pPay = G.promiserPayoff(rnd.alignment, S.promiserChoice, rnd.forfeit);
+  S.deciderTotal += dPay;
+  S.promiserTotal += pPay;
+  S.log.push({
+    session: S.code,
+    seed: S.seed,
+    round: S.i + 1,
+    alignment: rnd.alignment,
+    similar: rnd.similar ? "same" : "different",
+    forfeit: rnd.forfeit ? "1" : "0",
+    promiser: S.promiserChoice,
+    decider: action,
+    promiser_points: pPay,
+    decider_points: dPay,
+    ne_promiser: rnd.ne_promiser,
+    ne_decider: rnd.ne_decider,
+  });
+  el("revealText").textContent = "Promiser chose " + S.promiserChoice + " (" + pPay + "). Decider chose " + action + " (" + dPay + ").";
+  el("deciderTotal").textContent = String(S.deciderTotal);
+  el("promiserTotal").textContent = String(S.promiserTotal);
+  el("nextBtn").textContent = S.i === G.N_ROUNDS - 1 ? "See the table" : "Next round";
+  show("revealPane");
+}
+
+function next() {
+  if (S.i === G.N_ROUNDS - 1) {
+    el("play").hidden = true;
+    el("done").hidden = false;
+    return;
+  }
+  S.i += 1;
+  S.promiserChoice = null;
+  renderPromiser();
+}
+
+function csvEscape(value) {
+  const text = String(value);
+  if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+  return text;
+}
+
+function download() {
+  const header = ["session", "seed", "round", "alignment", "similar", "forfeit", "promiser", "decider", "promiser_points", "decider_points", "ne_promiser", "ne_decider", "stated_rule", "card_clarity", "reason"];
+  const rule = el("rule").value;
+  const clarity = el("clarity").value;
+  const reason = el("reason").value.replace(/\s+/g, " ").trim();
+  const lines = [header.join(",")];
+  S.log.forEach((row) => {
+    const full = Object.assign({}, row, { stated_rule: rule, card_clarity: clarity, reason: reason });
+    lines.push(header.map((key) => csvEscape(full[key])).join(","));
+  });
+  const blob = new Blob([lines.join("\n") + "\n"], { type: "text/csv" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "trust-forfeit-" + S.code + ".csv";
+  a.click();
+}
+
+el("startBtn").addEventListener("click", start);
+el("keepBtn").addEventListener("click", () => lockPromiser("keep"));
+el("breakBtn").addEventListener("click", () => lockPromiser("break"));
+el("deciderReady").addEventListener("click", renderDecider);
+el("trustBtn").addEventListener("click", () => lockDecider("trust"));
+el("verifyBtn").addEventListener("click", () => lockDecider("verify"));
+el("nextBtn").addEventListener("click", next);
+el("downloadBtn").addEventListener("click", download);
+</script>
+</body>
+</html>

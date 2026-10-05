@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT))
 
 import trust_forfeit as tf  # noqa: E402
 
-HF = ROOT.parent / "hugging face"
+HF = ROOT / "hf_static"
 
 
 class MatrixTests(unittest.TestCase):
