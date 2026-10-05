@@ -97,19 +97,21 @@ The 60 percent benchmark is the PS1 threshold: `10p − 4 = 2`, so `p* = 0.6`. I
 ## Classroom play
 
 <p align="center">
-  <img src="docs/assets/readme/classroom_trust.svg" width="88%" alt="Observed Trust was 16 of 28 on the aligned card, 18 of 28 without a forfeit, and 26 of 28 with a forfeit of 5. The model predicts 28, 0, and 28.">
+  <img src="docs/assets/readme/classroom_flow.svg" width="100%" alt="The Promiser locks Keep or Break and hands off the computer. The Decider cannot see that choice, locks Trust or Verify, and the round is scored. After twelve rounds the page shows the equilibrium and a CSV can be downloaded.">
 </p>
 
-| Card | Model | Observed |
-|---|---|---|
-| Aligned | Trust 1, Keep 1 | Trust 16/28; Keep 14/28 |
-| Misaligned, no forfeit | Trust 0, Break 1 | Trust 18/28; Break 13/28 |
-| Misaligned, forfeit 5 | Trust 1, Keep 1 | Trust 26/28; Keep 15/28 |
-
-Trust did not separate the aligned card from the misaligned card without a forfeit. The rise from 18/28 to 26/28 when the forfeit appeared is descriptive, and those cards are rounds 5, 7, 11, and 12, so the rise is mixed with order. Keep stayed near one half on every card. SAME Trust was 28/42, below DIFFERENT Trust at 32/42. The files are [`data/session-01.csv`](data/session-01.csv) through [`data/session-07.csv`](data/session-07.csv).
+The [public classroom game](https://huggingface.co/spaces/dku-comsci-econ206-2026/Trust_Forfeit) lets the Promiser lock Keep or Break, then hands the same computer to the Decider. The Decider sees the card and the SAME/DIFFERENT label, does not see the locked choice, and locks Trust or Verify. The page deals the cards, hides the choice, and scores the round. It shows the equilibrium only after twelve rounds. It stores no accounts and no lasting record of its own. The seven completed sittings are [`data/session-01.csv`](data/session-01.csv) through [`data/session-07.csv`](data/session-07.csv).
 
 > [!NOTE]
-> These seven pairs are a course exercise on one computer. They are not a sample of negotiators. The Space stores no accounts. Interface clicks are not these sessions. `outputs/results.json` still records `human_n: 0` because the solver does not read the CSV files.
+> This is a course exercise on one computer, not a sample of negotiators. The page scores the card already dealt. It does not re-solve the equilibrium while the pair is playing. Interface clicks are not these sessions.
+
+| Card | Equilibrium | What the seven pairs did |
+|---|---|---|
+| Aligned | Trust, Keep | Trust 16/28; Keep 14/28 |
+| Misaligned, no forfeit | Verify, Break | Trust 18/28; Break 13/28 |
+| Misaligned, forfeit 5 | Trust, Keep | Trust 26/28; Keep 15/28 |
+
+Trust did not separate the aligned card from the misaligned card without a forfeit. The move from 18/28 to 26/28 sits on rounds 5, 7, 11, and 12, so it is mixed with order. Keep stayed near one half on every card. SAME Trust was 28/42, below DIFFERENT Trust at 32/42.
 
 ## Auction note, not the result
 
