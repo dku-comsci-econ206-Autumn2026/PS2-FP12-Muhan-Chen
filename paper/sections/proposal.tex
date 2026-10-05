@@ -1,0 +1,70 @@
+\section{Question and verified gap}
+An AI negotiation assistant may copy a user's priorities and tone. The shared question is: when the payoff card is misaligned, what rule makes Trust an equilibrium even when a public SAME/DIFFERENT label is present? Q1 asks what the Nash equilibrium is before and after a $5$ forfeit. Q2 asks whether Nashpy returns the same equilibria and whether the PS1 benchmark and seed 206 can be reproduced. Q3 asks whether two real players follow the card or the similarity label. Seven pairs have played.
+
+PS1 supplied the threshold $p^\ast=0.6$~\cite{chen2026ps1}, but its Promiser did not choose an action. Cheap talk does not change the Break cell~\cite{crawford1982}. In the trust game the second mover chooses a return~\cite{berg1995}; here the card makes one action strictly better before play. A general penalty is also incomplete unless the rule says that a similarity cue cannot cancel it. This paper turns both sides into players and tests one narrow intervention.
+
+Figure~\ref{fig:teaser} puts Q1's equilibrium, Q2's reproduction, and Q3's seven pairs on one evidence chain. The shared object is the forfeit rule. The value $p^\ast=0.6$ is the PS1 benchmark reproduced in the computer-science panel. It is not an input to the new Nash equilibrium.
+
+\section{Strategic model and three lenses}
+The Promiser privately chooses Keep or Break, and the Decider chooses Trust or Verify. Both first lock their choices; before the reveal, neither can see the other's action, so the stage is simultaneous. The public score card is either aligned or misaligned: on the aligned card, Keep/Break payoffs are $6/3$; on the misaligned card, they are $6/10$ before the forfeit. Separately, SAME/DIFFERENT is a visible label showing whether the Promiser's displayed priority matches the Decider's priority. It changes no payoff and cannot waive a forfeit. Computer code deals the cards, hides choices, scores the round, and records the result; it does not choose for either person. The game is repeated for twelve rounds with a fresh card each time; scores do not enter the next card. Players can remember earlier rounds, so the repetition is not a reputation model with carried payoffs.
+
+The Decider's payoffs are $6$ after Trust and Keep, $-4$ after Trust and Break, and $2$ after Verify. The Promiser's Keep/Break payoffs are the same in Trust and Verify rows: on an aligned card they are $6/3$; on a misaligned card they are $6/10$ before the forfeit and $6/5$ after it. Thus the Promiser's payoff does not depend on whether the Decider trusted. SAME/DIFFERENT changes no number.
+
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}\toprule
+& \textbf{Keep} & \textbf{Break}\\\midrule
+\textbf{Trust} & $(6,6)$ & $(-4,3)$\\
+\textbf{Verify} & $(2,6)$ & $(2,3)$\\\bottomrule
+\end{tabular}\quad
+\begin{tabular}{@{}lcc@{}}\toprule
+& \textbf{Keep} & \textbf{Break}\\\midrule
+\textbf{Trust} & $(6,6)$ & $(-4,10)$\\
+\textbf{Verify} & $(2,6)$ & $(2,10)$\\\bottomrule
+\end{tabular}\end{center}
+\noindent\textit{Aligned card (left) and misaligned card without a forfeit (right); each cell is (Decider, Promiser).}
+
+\begin{center}\small
+\begin{tabular}{@{}lcc@{}}\toprule
+& \textbf{Keep} & \textbf{Break}\\\midrule
+\textbf{Trust} & $(6,6)$ & $(-4,5)$\\
+\textbf{Verify} & $(2,6)$ & $(2,5)$\\\bottomrule
+\end{tabular}\end{center}
+\noindent\textit{Misaligned card with a forfeit of 5. The equilibrium is (Trust, Keep).}
+
+On the aligned card, Keep strictly dominates Break and the unique Nash equilibrium is (Trust, Keep), with $(6,6)$. On the misaligned card without a forfeit, Break strictly dominates Keep; against Break the Decider prefers Verify because $2>-4$. The unique equilibrium is (Verify, Break), with $(2,10)$. If the Promiser deviates to Keep, its payoff falls from $10$ to $6$; if the Decider deviates to Trust, its payoff falls from $2$ to $-4$.
+
+The intervention is a $5$-point forfeit only on the misaligned card when Break occurs. It is larger than $10-6=4$, so Keep strictly dominates Break and the unique equilibrium becomes (Trust, Keep), $(6,6)$. The Promiser's deviation falls from $6$ to $5$ and the Decider's deviation from $6$ to $2$. The two equilibria have the same total payoff, $12$: $(2,10)$ before the intervention and $(6,6)$ after it. The $5$ points are lost by the Promiser, not transferred to the Decider; on the Trust-and-Keep path they are not paid, so the rule changes distribution rather than the two players' total. If the Break payoff exceeds $11$, or collection fails, the flip no longer follows. Because the card is public and Keep or Break is selected by strict dominance, the new equilibrium does not need a probability input. The $p^\ast=0.6$ value is PS1's benchmark: it answers when Trust and Verify would be equally good if keeping were still a probability. It is not an input to this new equilibrium.
+
+The game-theory lens identifies strict dominance and the unilateral deviations; the equilibrium language follows Nash~\cite{nash1950} and the normal-form treatment in Osborne and Rubinstein~\cite{osborne1994}. The social-choice lens makes the trade-off visible: the Decider gains $4$ while the Promiser loses $4$ when the misaligned equilibrium changes; no rule here makes both strictly better. The mechanism is small: forfeit 5 only on a misaligned Break, and SAME cannot waive it. The Promiser's payoff does not depend on Trust, so one action strictly dominates. It is still a two-player game: the Decider's best response uses that action, and the forfeit is what changes it. PS1 had no Promiser strategy. A copied priority on a ballot raises the same label problem; this paper does not add a voting game.
+
+\section{Computation and auction boundary}
+Nashpy returns the three equilibria in Section 2, and the deviation checks agree. Decider rows are $(6,-4),(2,2)$ in each matrix. The PS1 seed-206 replay, not a human sample, totals 48, 24, 22, and 18. Twelve tests pass, including JavaScript--Python agreement. Equilibrium play of the new 12 cards, with no people, scores 56 and 88. That schedule balances SAME and DIFFERENT, so the model's Trust gap is 0. In Section 4, SAME Trust (28/42) is below DIFFERENT Trust (32/42), opposite the direction in which a familiar label would raise Trust.
+
+Links: \GitHubLink, \NotebookLink, \HuggingFaceLink. Colab: Runtime $\rightarrow$ Run all. Bids $(9,6)$ and $(8,3)$ give second bids 6 and 3: Trust, Keep, then Verify, Break. This auction note is not the contribution. Poster file: \texttt{PS2-FP12-TrustForfeit-A0}.
+
+\section{Behavioral comparison}
+The model predicts Trust rate 0 and Break on a misaligned card with no forfeit, and Trust rate 1 and Keep when the card is aligned or the forfeit is 5. SAME should not change Trust~\cite{kahneman2002,debruine2002}.
+
+Seven pairs, session code 206, one computer each, and the page hides the Promiser's choice until the Decider locks. All 84 rounds have both choices (\texttt{data/session-01.csv}--\texttt{session-07.csv}). Interface clicks are separate. Intervals treat rounds as independent and are too narrow; Trust by pair runs from 6/12 to 11/12.
+
+\begin{center}\scriptsize
+\begin{tabularx}{\columnwidth}{@{}p{1.55cm}Yp{2.05cm}@{}}\toprule
+\textbf{Card}&\textbf{Prediction}&\textbf{Observed}\\\midrule
+Aligned&Trust 1, Keep 1&Trust 16/28 (0.39--0.74); Keep 14/28 (0.33--0.67)\\
+Misaligned, no forfeit&Trust 0, Break 1&Trust 18/28 (0.46--0.79); Break 13/28 (0.30--0.64)\\
+Misaligned, forfeit 5&Trust 1, Keep 1&Trust 26/28 (0.77--0.98); Keep 15/28 (0.36--0.71)\\
+\bottomrule\end{tabularx}\end{center}
+
+Trust did not separate an aligned card from a misaligned card with no forfeit: 16/28 against 18/28, and those intervals overlap. The rise from 18/28 to 26/28 when the forfeit appeared is descriptive only, and those cards are rounds 5, 7, 11, and 12, so it is mixed with order. Keep was 14/28, 15/28, and 15/28, about half on every card. On an aligned card Break pays 3 against 6, so that Break has no strategic reason. On forfeit cards Keep is \(15/28 \approx 0.54\), below \(p^\ast=0.6\). Trust then expects \(10\times 15/28 - 4 \approx 1.36\), below Verify's 2, yet the Decider trusted in 26/28 of those rounds. Keep overall is 44/84, about 0.52, and below 0.6 on every card, so after the fact Verify was better on each card. Always Verify scores 24 in a session; these Deciders averaged 19.7. That 24 is also the PS1 always-Verify total. They did not know the Keep rate when they chose. SAME Trust was 28/42, below DIFFERENT at 32/42. Across pairs the forfeit raised Keep for 2, left 2 unchanged, and lowered it for 3. One person is the Promiser for all 12 rounds. No written consent is recorded; this was a course exercise, and the files contain no names. A familiar label can stand in for keeping the promise~\cite{kahneman2002,debruine2002}; these pairs did not show that. The matrix remains the benchmark.
+
+\section{Application, impact, and open science}
+The case is a procurement screen that copies the buyer's priority and tone. In the matrix the forfeit makes Break unattractive; in the seven pairs it did not raise Keep. Show the card first, and do not let similarity waive the forfeit.
+
+\subsection*{Open Science Statement}
+\GitHubLink; \NotebookLink; \HuggingFaceLink. The seven sessions are in \texttt{data/}. Interface clicks are separate. Runtime $\rightarrow$ Run all reproduces the matrices. The 2056 note is in the horizon appendix.
+
+\subsection*{Statement of Contribution to the UN's SDGs}
+SDG 10 asks who could pay a real-money forfeit of 5. SDG 16 asks whether disclosure and appeal make the rule contestable. Neither impact is claimed.
+
+\subsection*{Submission milestones}
+Review-ready: 27 September 2026, 11:00 p.m. Symposium and peer review: 28 September 2026, 2:45--5:15 p.m., IB 2050. Final revision: 30 September 2026, 11:00 p.m. All times are Beijing time.

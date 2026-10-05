@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 168" role="img" aria-labelledby="title desc">
+  <title id="title">Project pipeline</title>
+  <desc id="desc">Public card, strict dominance, Nash equilibrium, a forfeit of 5, seven classroom pairs, and a similarity label that changes no payoff.</desc>
+  <rect width="1100" height="168" fill="#F5F7FA"/>
+  <g font-family="Georgia, serif" fill="#111111">
+    <g>
+      <rect x="16" y="36" width="150" height="96" rx="8" fill="#FFFFFF" stroke="#0072B2" stroke-width="2"/>
+      <text x="91" y="72" text-anchor="middle" font-size="15" font-weight="700">Public card</text>
+      <text x="91" y="96" text-anchor="middle" font-size="13">Break pays 3 or 10</text>
+    </g>
+    <g>
+      <rect x="196" y="36" width="150" height="96" rx="8" fill="#FFFFFF" stroke="#0072B2" stroke-width="2"/>
+      <text x="271" y="72" text-anchor="middle" font-size="15" font-weight="700">Dominance</text>
+      <text x="271" y="96" text-anchor="middle" font-size="13">One action is better</text>
+    </g>
+    <g>
+      <rect x="376" y="36" width="150" height="96" rx="8" fill="#FFFFFF" stroke="#0072B2" stroke-width="2"/>
+      <text x="451" y="72" text-anchor="middle" font-size="15" font-weight="700">Equilibrium</text>
+      <text x="451" y="96" text-anchor="middle" font-size="13">Nash, then Nashpy</text>
+    </g>
+    <g>
+      <rect x="556" y="36" width="150" height="96" rx="8" fill="#FFFFFF" stroke="#E69F00" stroke-width="2"/>
+      <text x="631" y="72" text-anchor="middle" font-size="15" font-weight="700">Forfeit 5</text>
+      <text x="631" y="96" text-anchor="middle" font-size="13">Lost, not transferred</text>
+    </g>
+    <g>
+      <rect x="736" y="36" width="150" height="96" rx="8" fill="#FFFFFF" stroke="#009E73" stroke-width="2"/>
+      <text x="811" y="72" text-anchor="middle" font-size="15" font-weight="700">Seven pairs</text>
+      <text x="811" y="96" text-anchor="middle" font-size="13">84 locked rounds</text>
+    </g>
+    <g>
+      <rect x="916" y="36" width="168" height="96" rx="8" fill="#FFFFFF" stroke="#111111" stroke-width="2"/>
+      <text x="1000" y="72" text-anchor="middle" font-size="15" font-weight="700">SAME / DIFFERENT</text>
+      <text x="1000" y="96" text-anchor="middle" font-size="13">Changes no cell</text>
+    </g>
+    <g stroke="#111111" stroke-width="1.6" fill="none">
+      <path d="M166 84 H196"/>
+      <path d="M346 84 H376"/>
+      <path d="M526 84 H556"/>
+      <path d="M706 84 H736"/>
+      <path d="M886 84 H916"/>
+    </g>
+  </g>
+</svg>
