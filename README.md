@@ -94,16 +94,16 @@ Misaligned, forfeit 5. Equilibrium: Trust, Keep.
 
 The 60 percent benchmark is the PS1 threshold: `10p − 4 = 2`, so `p* = 0.6`. It is the point at which Trust matches Verify when Keep is still a probability. In this game one action is strictly better, so the equilibrium does not use that probability.
 
-## Classroom play
+## Behavioral Decision Lab
 
 <p align="center">
   <img src="docs/assets/readme/classroom_flow.svg" width="100%" alt="The Promiser locks Keep or Break and hands off the computer. The Decider cannot see that choice, locks Trust or Verify, and the round is scored. After twelve rounds the page shows the equilibrium and a CSV can be downloaded.">
 </p>
 
-The [public classroom game](https://huggingface.co/spaces/dku-comsci-econ206-2026/Trust_Forfeit) lets the Promiser lock Keep or Break, then hands the same computer to the Decider. The Decider sees the card and the SAME/DIFFERENT label, does not see the locked choice, and locks Trust or Verify. The page deals the cards, hides the choice, and scores the round. It shows the equilibrium only after twelve rounds. It stores no accounts and no lasting record of its own. The seven completed sittings are [`data/session-01.csv`](data/session-01.csv) through [`data/session-07.csv`](data/session-07.csv).
+The [public Behavioral Decision Lab](https://huggingface.co/spaces/dku-comsci-econ206-2026/Trust_Forfeit) lets the Promiser lock Keep or Break, then hands the same computer to the Decider. The Decider sees the card and the SAME/DIFFERENT label, does not see the locked choice, and locks Trust or Verify. The page deals the cards, hides the choice, and scores the round. It shows the equilibrium only after twelve rounds. It stores no accounts and no lasting record of its own. The seven completed sittings are [`data/session-01.csv`](data/session-01.csv) through [`data/session-07.csv`](data/session-07.csv).
 
 > [!NOTE]
-> This is a course exercise on one computer, not a sample of negotiators. The page scores the card already dealt. It does not re-solve the equilibrium while the pair is playing. Interface clicks are not these sessions.
+> This is an exploratory behavioral exercise on one computer, not a sample of negotiators. The page scores the card already dealt. It does not re-solve the equilibrium while the pair is playing. Interface clicks are not these sessions.
 
 | Card | Equilibrium | What the seven pairs did |
 |---|---|---|
