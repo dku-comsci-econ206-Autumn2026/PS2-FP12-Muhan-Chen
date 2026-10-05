@@ -1,0 +1,48 @@
+\documentclass[sigconf,nonacm]{acmart}
+\settopmatter{printacmref=false,printfolios=true}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\usepackage{amsmath,tabularx,array,enumitem,balance,tikz,xurl}
+\usetikzlibrary{positioning,arrows.meta}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\definecolor{Ink}{HTML}{111111}
+\definecolor{Strategy}{HTML}{0072B2}
+\definecolor{Interdisciplinary}{HTML}{009E73}
+\definecolor{Leadership}{HTML}{E69F00}
+\definecolor{Nobel}{HTML}{CC79A7}
+\definecolor{Surface}{HTML}{F5F7FA}
+\definecolor{Divider}{HTML}{D9D9D9}
+\hypersetup{colorlinks=true,linkcolor=Strategy,citecolor=Interdisciplinary,urlcolor=Strategy}
+\setlist{leftmargin=*,topsep=2pt,itemsep=1pt}
+\newcommand{\CourseNumber}{COMSCI/ECON 206}
+\newcommand{\CourseName}{Computational Microeconomics}
+\newcommand{\CourseSession}{Autumn 2026 Session 1}
+\newcommand{\Instructor}{Professor Luyao Zhang}
+\newcommand{\TeamCode}{FP12}
+\newcommand{\SymposiumSession}{A}
+\newcommand{\GitHubLink}{\url{https://github.com/dku-comsci-econ206-Autumn2026/PS2-Muhan} (commit \texttt{c92006c})}
+\newcommand{\NotebookLink}{\url{https://colab.research.google.com/github/dku-comsci-econ206-Autumn2026/PS2-Muhan/blob/main/PS2_trust_forfeit.ipynb}}
+\newcommand{\HuggingFaceLink}{\url{https://huggingface.co/spaces/dku-comsci-econ206-2026/Trust_Forfeit}}
+\newcommand{\coursemeta}{\noindent\textbf{Submission to:} \CourseNumber{} --- \CourseName.\\
+\textbf{Course session:} \CourseSession. \textbf{Team:} \TeamCode. \textbf{Symposium:} \SymposiumSession.\\
+\textbf{Course instructor:} \Instructor. \textbf{Assignment:} PS2 collaborative research proposal.\par\smallskip}
+\title{Trust the Card, Not the Resemblance}
+\author{Muhan Chen}
+\affiliation{\institution{Duke Kunshan University}\city{Kunshan}\country{China}}
+\email{mc956@duke.edu}
+\renewcommand{\shortauthors}{Muhan Chen, Team \TeamCode}
+\newif\ifTeachingAnnotations
+\TeachingAnnotationsfalse
+\input{annotations/setup}
+\begin{document}
+\begin{teaserfigure}
+\centering
+\input{figures/ps2_teaser.tex}
+\caption{Three linked panels share one question, the forfeit rule. Completed model evidence is the matrix equilibria, the Nashpy check, and the PS1 replay of $p^\ast=0.6$. Human play is seven pairs: the Trust rise is descriptive and mixed with order; Keep stayed near one half. Interface clicks are not those sessions. Panel colors, also named in the text: Strategy \#0072B2, Interdisciplinary \#009E73, Leadership \#E69F00; arrows and the lower bar use Ink \#111111.}
+\Description{Three labeled panels show economics, computer science, and behavioral science evidence, joined by a bottom synthesis bar. The economics panel summarizes the two-player matrices, the computer science panel summarizes Nashpy and seed 206, and the behavioral panel marks classroom play as planned with zero observations.}
+\label{fig:teaser}
+\end{teaserfigure}
+\maketitle\raggedbottom\coursemeta
+\input{sections/proposal}
+\input{appendices/supporting}
+\end{document}

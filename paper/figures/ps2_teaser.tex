@@ -1,0 +1,28 @@
+\newlength{\SynWidth}\setlength{\SynWidth}{\dimexpr0.906\textwidth+22pt\relax}%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  panel/.style={draw=#1, line width=0.9pt, rounded corners=3pt, fill=#1!8,
+    text width=0.29\textwidth, minimum height=3.15cm, align=left, inner sep=4pt},
+  arrow/.style={-{Stealth[length=2mm]}, line width=0.8pt, draw=Ink}
+]
+\node[panel=Strategy, anchor=north west] (econ) at (0,0) {%
+  {\bfseries\color{Strategy} Economics} · \textbf{Q1: what flips Trust?}\\[1pt]
+  Promiser chooses Keep or Break. Decider chooses Trust or Verify. The card and the SAME/DIFFERENT label are public; both actions stay hidden until they lock.\\[1pt]
+  No forfeit: (Verify, Break). Forfeit of 5: (Trust, Keep). Payoffs sum to 12 either way, $(2,10)$ or $(6,6)$.};
+\node[panel=Interdisciplinary, anchor=north west] (cs) at ([xshift=0.018\textwidth]econ.north east) {%
+  {\bfseries\color{Interdisciplinary} Computer science} · \textbf{Q2: does the code match?}\\[1pt]
+  Input: three matrices and 12 seed-206 cards. Baseline: the no-forfeit matrix, and PS1 totals 48 / 24 / 22 / 18.\\[1pt]
+  Nashpy agrees with the deviation check. Twelve tests pass. Fresh run: Colab Run all, commit \texttt{c92006c}.};
+\node[panel=Leadership, anchor=north west] (bs) at ([xshift=0.018\textwidth]cs.north east) {%
+  {\bfseries\color{Leadership} Behavioral science} · \textbf{Q3: do people follow the card?}\\[1pt]
+  Benchmark: Trust follows the card, not the label. Prediction: on a fixed card, SAME does not change Trust.\\[1pt]
+  Seven pairs. Trust was higher on forfeit cards (26/28 vs.\ 18/28), but those are rounds 5, 7, 11, and 12, so order is not separated. Keep stayed near one half.};
+\node[draw=Ink, line width=0.9pt, rounded corners=3pt, fill=Surface,
+  text width=\SynWidth, align=center, inner sep=3pt, anchor=north west]
+  (syn) at ([yshift=-0.32cm]econ.south west) {%
+  \textbf{Shared question:} when the card is misaligned, what rule makes Trust the equilibrium, and can resemblance replace it?\\
+  GitHub checks the computation \,·\, Hugging Face structures the behavioral record \,·\, A0 poster: a negotiation screen that copies priority and tone};
+\draw[arrow] (econ.south) -- (econ.south |- syn.north);
+\draw[arrow] (cs.south) -- (cs.south |- syn.north);
+\draw[arrow] (bs.south) -- (bs.south |- syn.north);
+\end{tikzpicture}
