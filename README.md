@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="docs/assets/readme/poster_preview.png" width="100%" alt="Current A0 poster preview: Trust the Card, Not the Resemblance">
+</p>
+
+**Poster PDF:** [poster/PS2-FP12-TrustForfeit-A0.pdf](poster/PS2-FP12-TrustForfeit-A0.pdf)
+
 <div align="center">
 
 # Trust the Table, Not the Resemblance
