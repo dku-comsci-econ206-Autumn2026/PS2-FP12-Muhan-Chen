@@ -2,11 +2,11 @@
   <img src="docs/assets/readme/poster_preview.png" width="100%" alt="Current A0 poster preview: Trust the Card, Not the Resemblance">
 </p>
 
-**Poster PDF:** [poster/PS2-FP12-TrustForfeit-A0.pdf](poster/PS2-FP12-TrustForfeit-A0.pdf)
+**Poster PDF:** [poster/Final-FP12-Muhan-Chen-A0-Poster.pdf](poster/Final-FP12-Muhan-Chen-A0-Poster.pdf)
 
 <div align="center">
 
-# Trust the Table, Not the Resemblance
+# Trust the Card, Not the Resemblance
 
 ## A public forfeit on the card, not the similarity label
 
