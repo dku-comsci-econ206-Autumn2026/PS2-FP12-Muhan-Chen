@@ -1,5 +1,5 @@
 ---
-title: Trust the Table, Not the Resemblance
+title: Trust the Card, Not the Resemblance
 emoji: "📋"
 colorFrom: blue
 colorTo: gray
@@ -7,16 +7,30 @@ sdk: static
 app_file: index.html
 pinned: false
 license: mit
-short_description: Two classmates play a trust matrix. The computer only deals cards.
+short_description: Forfeit of 5 makes Trust the equilibrium, not the label.
 ---
 
-# Trust the Table, Not the Resemblance
+# Trust the Card, Not the Resemblance
 
-COMSCI/ECON 206 PS2 behavioral artifact. Team FP12. Muhan Chen.
+COMSCI/ECON 206 final project. Team FP12. Muhan Chen.
 
-Two people share one computer. The **Promiser** chooses Keep or Break. The **Decider** does not see that choice and chooses Trust or Verify. The page deals a public payoff card and a SAME/DIFFERENT label. It does not choose for either person.
+When the payoff card is misaligned, a public forfeit of 5 makes (Trust, Keep) the unique equilibrium. A SAME/DIFFERENT label changes no cell and cannot waive the forfeit.
 
-Points are not money. The equilibrium is shown only after 12 rounds. A downloadable CSV is the record of that sitting. This Space does not keep those files. The seven completed sessions are in the course repository under `data/`. An author click-through is an interface test, not one of those sessions.
+Two people share one computer. The **Promiser** chooses Keep or Break. The **Decider** does not see that choice and chooses Trust or Verify. The page deals the card and the label. It does not choose for either person.
+
+Points are not money. The equilibrium is shown only after 12 rounds. A downloadable CSV is that sitting. This Space does not store it. An author click-through is an interface test, not one of the seven classroom pairs.
+
+## What seven pairs did
+
+Seven pairs used session code 206. The forfeit cards were always rounds 5, 7, 11, and 12, so the forfeit is mixed with order. This is exploratory, not a causal result.
+
+| Card | Trust | Keep |
+|---|---:|---:|
+| Aligned | 16/28 | 14/28 |
+| Misaligned, no forfeit | 18/28 | 15/28 |
+| Misaligned, forfeit of 5 | 26/28 | 15/28 |
+
+Aligned Trust is not higher than Trust with no forfeit. On the forfeit card, Keep stayed 15/28. The model says Keep. The pairs did not follow that prediction. On the aligned card Break pays 3 and Keep pays 6, so Break has no strategic reason, and Keep was still only 14/28.
 
 ## Cards
 

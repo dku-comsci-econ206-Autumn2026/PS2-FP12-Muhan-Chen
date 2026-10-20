@@ -172,7 +172,7 @@ tools/build_notebook.py          rebuilds the notebook from trust_forfeit.py
 
 The Promiser's Keep and Break payoffs do not depend on whether the Decider trusted. Twelve rounds deal a fresh card and do not carry points into the next card. This is not a reputation model. The two equilibria have the same total, 12; the forfeit changes who receives it. If the Break payoff exceeds 11, or the forfeit is not collected, the flip does not follow.
 
-The article source title is “Trust the Card, Not the Resemblance.” This repository and the Space use “Trust the Table, Not the Resemblance.”
+The article, this repository, and the Space use the title “Trust the Card, Not the Resemblance.”
 
 ## Selected references
 
