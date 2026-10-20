@@ -18,7 +18,7 @@ Duke Kunshan University · Autumn 2026
 
 <p>
   <a href="paper/compiled/PS2-FP12-Muhan-Chen.pdf"><img alt="Paper PDF" src="https://img.shields.io/badge/PAPER-PDF-0B3D91?style=for-the-badge&amp;logo=adobeacrobatreader&amp;logoColor=white"></a>
-  <a href="poster/PS2-FP12-TrustForfeit-A0.pdf"><img alt="A0 poster PDF" src="https://img.shields.io/badge/A0_POSTER-PDF-0F766E?style=for-the-badge&amp;logo=adobeacrobatreader&amp;logoColor=white"></a>
+  <a href="poster/Final-FP12-Muhan-Chen-A0-Poster.pdf"><img alt="A0 poster PDF" src="https://img.shields.io/badge/A0_POSTER-PDF-0F766E?style=for-the-badge&amp;logo=adobeacrobatreader&amp;logoColor=white"></a>
   <a href="https://colab.research.google.com/github/dku-comsci-econ206-Autumn2026/PS2-FP12-Muhan-Chen/blob/main/PS2_trust_forfeit.ipynb"><img alt="Open the notebook in Colab" src="https://img.shields.io/badge/COLAB-NOTEBOOK-B45309?style=for-the-badge&amp;logo=googlecolab&amp;logoColor=white"></a>
   <a href="https://huggingface.co/spaces/dku-comsci-econ206-2026/Trust_Forfeit"><img alt="Open the two-player game" src="https://img.shields.io/badge/GAME-HUGGING_FACE-7C5C00?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white"></a>
 </p>
